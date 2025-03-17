@@ -3,6 +3,7 @@ package br.com.pucminas.edutech.service;
 import br.com.pucminas.edutech.model.dto.StudentPointsDTO;
 import br.com.pucminas.edutech.model.entity.StudentPoints;
 import br.com.pucminas.edutech.repository.StudentPointsRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +48,18 @@ public class StudentPointsService {
                 .map(this::convertToDTO)
                 .toList();
 
+    }
+
+    public StudentPointsDTO getStudentPointsByID(Long id){
+        return convertToDTO(studentPointsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No Student with id " + id + " found")));
+    }
+
+    public void clearStudentPoints(Long id){
+        StudentPoints studentPoints = studentPointsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No Student with id " + id + " found"));
+
+        studentPointsRepository.delete(studentPoints);
     }
 
 }

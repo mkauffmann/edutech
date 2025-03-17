@@ -3,6 +3,7 @@ package br.com.pucminas.edutech.service;
 import br.com.pucminas.edutech.model.dto.BadgeDTO;
 import br.com.pucminas.edutech.model.entity.Badge;
 import br.com.pucminas.edutech.repository.BadgeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -43,13 +44,13 @@ public class BadgeService {
 
     public BadgeDTO getBadgeById(Long id){
         Badge badge = badgeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Badge not found"));
+                .orElseThrow(() -> new EntityNotFoundException("No badge with id " + id + " found"));
         return convertToDTO(badge);
     }
 
     public BadgeDTO updateBadge(Long id, BadgeDTO badgeDTO){
         Badge existingBadge = badgeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Badge not found"));
+                .orElseThrow(() -> new EntityNotFoundException("No badge with id " + id + " found"));
 
         existingBadge.setName(badgeDTO.getName());
         existingBadge.setImgUrl(badgeDTO.getImgUrl());
@@ -61,7 +62,7 @@ public class BadgeService {
 
     public void deleteBadge(Long id){
         Badge badge = badgeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Badge not found"));
+                .orElseThrow(() -> new EntityNotFoundException("No badge with id " + id + " found"));
 
         badgeRepository.delete(badge);
     }
