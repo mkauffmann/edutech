@@ -21,7 +21,7 @@ public class BadgeController {
     }
 
     @PostMapping
-    public ResponseEntity<BadgeDTO> createUser(@RequestBody BadgeDTO badgeDTO) {
+    public ResponseEntity<BadgeDTO> createBadge(@RequestBody BadgeDTO badgeDTO) {
         return new ResponseEntity<>(badgeService.createBadge(badgeDTO), HttpStatus.CREATED);
     }
 

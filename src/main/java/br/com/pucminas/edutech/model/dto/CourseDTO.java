@@ -1,5 +1,6 @@
 package br.com.pucminas.edutech.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseDTO {
@@ -7,24 +8,32 @@ public class CourseDTO {
     private String name;
     private String description;
     private String coverImgUrl;
-    private List<ClassDTO> classes;
+    private List<LessonDTO> lessons;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(Long id, String name, String description, String coverImgUrl, List<ClassDTO> classes) {
+    public CourseDTO(Long id, String name, String description, String coverImgUrl, List<LessonDTO> lessons) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.coverImgUrl = coverImgUrl;
-        this.classes = classes;
+        this.lessons = lessons;
     }
 
-    public CourseDTO(String name, String description, String coverImgUrl, List<ClassDTO> classes) {
+    public CourseDTO(String name, String description, String coverImgUrl, List<LessonDTO> lessons) {
         this.name = name;
         this.description = description;
         this.coverImgUrl = coverImgUrl;
-        this.classes = classes;
+        this.lessons = lessons;
+    }
+
+    public CourseDTO(Long id, String name, String description, String coverImgUrl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.coverImgUrl = coverImgUrl;
+        this.lessons = new ArrayList<LessonDTO>();
     }
 
     public Long getId() {
@@ -59,11 +68,11 @@ public class CourseDTO {
         this.coverImgUrl = coverImgUrl;
     }
 
-    public List<ClassDTO> getClasses() {
-        return classes;
+    public List<LessonDTO> getLessons() {
+        return lessons;
     }
 
-    public void setClasses(List<ClassDTO> classes) {
-        this.classes = classes;
+    public void setLessons(List<LessonDTO> lessons) {
+        this.lessons = lessons;
     }
 }

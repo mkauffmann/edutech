@@ -1,28 +1,23 @@
-package br.com.pucminas.edutech.model.entity;
+package br.com.pucminas.edutech.model.dto;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "class")
-public class Class {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_CLASS")
+public class LessonDTO {
     private Long id;
-
-    @Column(name = "NAME", nullable = false)
     private String name;
-
-    @Column(name = "DESCRIPTION", nullable = false)
     private String description;
-
-    @Column(name = "VIDEO_URL", nullable = false)
     private String videoUrl;
 
-    public Class() {
+    public LessonDTO() {
     }
 
-    public Class(String name, String description, String videoUrl) {
+    public LessonDTO(String name, String description, String videoUrl) {
+        this.name = name;
+        this.description = description;
+        this.videoUrl = videoUrl;
+    }
+
+    public LessonDTO(Long id, String name, String description, String videoUrl) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.videoUrl = videoUrl;

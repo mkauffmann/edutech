@@ -24,20 +24,27 @@ public class Course {
 
     @ManyToMany
     @JoinTable (
-            name = "course_class",
+            name = "course_lesson",
             joinColumns = {@JoinColumn(name = "ID_COURSE")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_CLASS")}
+            inverseJoinColumns = {@JoinColumn(name = "ID_LESSON")}
     )
-    private List<Class> classes;
+    private List<Lesson> lessons;
 
     public Course() {
     }
 
-    public Course(String name, String description, String coverImgUrl, List<Class> classes) {
+    public Course(String name, String description, String coverImgUrl, List<Lesson> lessons) {
         this.name = name;
         this.description = description;
         this.coverImgUrl = coverImgUrl;
-        this.classes = classes;
+        this.lessons = lessons;
+    }
+
+    public Course(Long id, String name, String description, String coverImgUrl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.coverImgUrl = coverImgUrl;
     }
 
     public Long getId() {
@@ -72,11 +79,11 @@ public class Course {
         this.coverImgUrl = coverImgUrl;
     }
 
-    public List<Class> getClasses() {
-        return classes;
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 
-    public void setClasses(List<Class> classes) {
-        this.classes = classes;
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }
