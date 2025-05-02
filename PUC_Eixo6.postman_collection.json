@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "b7da250a-2ec2-4402-914d-e9c817cc3dbd",
+		"name": "PUC_Eixo6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17795347"
+	},
+	"item": [
+		{
+			"name": "BadgeService",
+			"item": [
+				{
+					"name": "createBadge",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"imgUrl\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/badges",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllBadges",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/badges",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBadge",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Química\",\n    \"imgUrl\" : \"/images/badges/flask.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/badges/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badges",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBadgeById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/badges/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badges",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBadge",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/badges/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badges",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudentPointsService",
+			"item": [
+				{
+					"name": "getStudentPointsRanking",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/points",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"points"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentPointsById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/points/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"points",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStudentPoints",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"points\" : \"100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/points/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"points",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clearStudentPoints",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/points/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"points",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudentBadgeService",
+			"item": [
+				{
+					"name": "assignBadgeToStudent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/studentBadge?studentId=2&badgeId=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"studentBadge"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "2"
+								},
+								{
+									"key": "badgeId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getlAllBadgesfromStudent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/studentBadge?studentId=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"studentBadge"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBadgeFromStudent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/studentBadge?studentId=2&badgeId=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"studentBadge"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "2"
+								},
+								{
+									"key": "badgeId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LessonService",
+			"item": [
+				{
+					"name": "getAllLessons",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/lessons",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateLesson",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"teste 2\", \n    \"description\" : \"teste\", \n    \"videoUrl\" : \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/lessons",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLessonById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/lessons/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessons",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLesson",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"teste put\", \n    \"description\" : \"put\", \n    \"videoUrl\" : \"put\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/lessons/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessons",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLesson",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/lessons/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessons",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CourseService",
+			"item": [
+				{
+					"name": "getAllCourses",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLessonFromCourse",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/courses?courseId=11&lessonId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "11"
+								},
+								{
+									"key": "lessonId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCourse",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/courses/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addLessonToCourse",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/courses?courseId=11&lessonId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "11"
+								},
+								{
+									"key": "lessonId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCourseById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/courses/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCourse",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\" : \"teste\", \n    \"description\" : \"teste\", \n    \"coverImgUrl\" : \"teste\",\n    \"lessons\" : []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCourseInfo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\" : \"teste put\", \n    \"description\" : \"teste\", \n    \"coverImgUrl\" : \"teste\",\n    \"lessons\" : []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/courses/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"courses",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EnrollmentService",
+			"item": [
+				{
+					"name": "enrollStudentInCourse",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enrollment?studentId=1&courseId=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1"
+								},
+								{
+									"key": "courseId",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCoursesForStudent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enrollment/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LessonProgressService",
+			"item": [
+				{
+					"name": "markLessonAsWatched",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/lessonProgress?studentId=1&lessonId=1111",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessonProgress"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1"
+								},
+								{
+									"key": "lessonId",
+									"value": "1111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLessonsWatchedByStudent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/lessonProgress/111",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lessonProgress",
+								"111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

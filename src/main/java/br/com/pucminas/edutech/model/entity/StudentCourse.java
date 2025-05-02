@@ -12,7 +12,7 @@ public class StudentCourse {
     private Long id;
 
     @Column(name = "student_id", nullable = false)
-    private Long studentId;
+    private String studentId;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
@@ -21,14 +21,14 @@ public class StudentCourse {
     @Column(name = "enrolled_at", nullable = false)
     private LocalDateTime enrolledAt;
 
-    public StudentCourse(Long id, Long studentId, Course course, LocalDateTime enrolledAt) {
+    public StudentCourse(Long id, String studentId, Course course, LocalDateTime enrolledAt) {
         this.id = id;
         this.studentId = studentId;
         this.course = course;
         this.enrolledAt = enrolledAt;
     }
 
-    public StudentCourse(Long studentId, Course course, LocalDateTime enrolledAt) {
+    public StudentCourse(String studentId, Course course, LocalDateTime enrolledAt) {
         this.studentId = studentId;
         this.course = course;
         this.enrolledAt = enrolledAt;
@@ -45,11 +45,11 @@ public class StudentCourse {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

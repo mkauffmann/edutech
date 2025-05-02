@@ -4,18 +4,18 @@ import java.time.LocalDateTime;
 
 public class StudentCourseDTO {
     private Long id;
-    private Long studentId;
+    private String studentId;
     private CourseDTO course;
     private LocalDateTime enrolledAt;
 
-    public StudentCourseDTO(Long id, Long studentId, CourseDTO course, LocalDateTime enrolledAt) {
+    public StudentCourseDTO(Long id, String studentId, CourseDTO course, LocalDateTime enrolledAt) {
         this.id = id;
         this.studentId = studentId;
         this.course = course;
         this.enrolledAt = enrolledAt;
     }
 
-    public StudentCourseDTO(Long studentId, CourseDTO course, LocalDateTime enrolledAt) {
+    public StudentCourseDTO(String studentId, CourseDTO course, LocalDateTime enrolledAt) {
         this.studentId = studentId;
         this.course = course;
         this.enrolledAt = enrolledAt;
@@ -32,11 +32,11 @@ public class StudentCourseDTO {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

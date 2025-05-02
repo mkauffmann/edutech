@@ -1,0 +1,29 @@
+{
+  "realm": "edutech-realm",
+  "enabled": true,
+  "users": [
+    {
+      "username": "service-account-edutech-client",
+      "enabled": true,
+      "serviceAccountClientId": "edutech-client",
+      "clientRoles": {
+        "realm-management": [
+          "view-users",
+          "manage-users"
+        ]
+      }
+    }
+  ],
+  "clients": [
+    {
+      "clientId" : "edutech-client",
+      "redirectUris" : [ "/*" ],
+      "webOrigins" : [ "/*" ],
+      "serviceAccountsEnabled": true,
+      "secret": "E594SG7QJY3tI9o8YJgOFBbKz4U6oSAS"
+    }
+  ],
+  "roles": {
+    "realm": []
+  }
+}

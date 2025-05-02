@@ -24,7 +24,7 @@ public class EnrollmentService {
         this.modelMapper = modelMapper;
     }
 
-    public void enrollStudentInCourse(Long studentId, Long courseId) {
+    public void enrollStudentInCourse(String studentId, Long courseId) {
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new EntityNotFoundException("Course not found with id " + courseId));
 
@@ -36,7 +36,7 @@ public class EnrollmentService {
         studentCourseRepository.save(enrollment);
     }
 
-    public List<CourseDTO> getCoursesForStudent(Long studentId) {
+    public List<CourseDTO> getCoursesForStudent(String studentId) {
         List<StudentCourse> enrollments = studentCourseRepository.findByStudentId(studentId);
         return enrollments.stream()
                 .map(enrollment -> modelMapper.map(enrollment.getCourse(), CourseDTO.class))

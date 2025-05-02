@@ -5,6 +5,7 @@ import br.com.pucminas.edutech.service.EnrollmentService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,13 +22,21 @@ public class EnrollmentController {
     }
 
     @PostMapping
-    public ResponseEntity<String> enrollStudentInCourse(@RequestParam Long studentId, @RequestParam Long courseId){
+    public ResponseEntity<String> enrollStudentInCourse(@RequestParam String studentId, @RequestParam Long courseId){
         service.enrollStudentInCourse(studentId, courseId);
         return ResponseEntity.ok("Student enrolled successfully");
     }
 
+//    @PreAuthorize("hasRole('student')")
+//    @GetMapping("/{studentId}")
+//    public ResponseEntity<List<CourseDTO>> getCoursesForStudent(@AuthenticationPrincipal Jwt jwt) {
+//        String studentId = jwt.getSubject();
+//        return ResponseEntity.ok(service.getCoursesForStudent(studentId));
+//    }
+
+    @PreAuthorize("hasRole('student')")
     @GetMapping("/{studentId}")
-    public ResponseEntity<List<CourseDTO>> getCoursesForStudent(@PathVariable Long studentId) {
+    public ResponseEntity<List<CourseDTO>> getCoursesForStudent(@PathVariable String studentId) {
         return ResponseEntity.ok(service.getCoursesForStudent(studentId));
     }
 
