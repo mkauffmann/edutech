@@ -1,4 +1,5 @@
 {
+  "id": "4c963588-2aa0-4cee-896e-b8012f2517b0",
   "realm": "edutech-realm",
   "enabled": true,
   "users": [
@@ -20,10 +21,20 @@
       "redirectUris" : [ "/*" ],
       "webOrigins" : [ "/*" ],
       "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled" : true,
       "secret": "E594SG7QJY3tI9o8YJgOFBbKz4U6oSAS"
     }
   ],
   "roles": {
-    "realm": []
+    "realm": [
+      {
+        "id": "b6180e86-b818-4e7b-a2d7-dbff6f60cd54",
+        "name": "ADMIN"
+      },
+      {
+        "id": "15472736-56ac-49f6-b8e2-396c2f9e0c8b",
+        "name": "STUDENT"
+      }
+    ]
   }
 }

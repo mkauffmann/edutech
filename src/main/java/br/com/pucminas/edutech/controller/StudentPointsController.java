@@ -5,6 +5,7 @@ import br.com.pucminas.edutech.service.StudentPointsService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class StudentPointsController {
     }
 
     @PutMapping("/{studentId}")
+    @PreAuthorize("hasRole('STUDENT')")
     public ResponseEntity<StudentPointsDTO> updatePoints(@PathVariable Long studentId, @RequestBody StudentPointsDTO dto) {
         return ResponseEntity.ok(service.updatePoints(studentId, dto.getPoints()));
     }
