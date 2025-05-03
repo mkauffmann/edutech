@@ -5,6 +5,9 @@ import br.com.pucminas.edutech.service.LessonProgressService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,13 +24,19 @@ public class LessonProgressController {
     }
 
     @PostMapping
-    public ResponseEntity<String> markLessonAsWatched(@RequestParam Long studentId, @RequestParam Long lessonId){
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<String> markLessonAsWatched(@AuthenticationPrincipal Jwt jwt, @RequestParam Long lessonId){
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         service.markLessonAsWatched(studentId, lessonId);
         return ResponseEntity.ok("Lesson watched");
     }
 
-    @GetMapping("/{studentId}")
-    public ResponseEntity<List<LessonDTO>> getLessonsWatchedByStudent(@PathVariable Long studentId){
+    @GetMapping
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<List<LessonDTO>> getLessonsWatchedByStudent(@AuthenticationPrincipal Jwt jwt){
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         return ResponseEntity.ok(service.getLessonsWatchedByStudent(studentId));
     }
 

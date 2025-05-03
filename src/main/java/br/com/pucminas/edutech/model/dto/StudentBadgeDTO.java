@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class StudentBadgeDTO {
     private Long id;
-    private Long studentId;  // Foreign key to student service
+    private String studentId;
     private BadgeDTO badge;
     private LocalDateTime createdAt;
 
     public StudentBadgeDTO() {
     }
 
-    public StudentBadgeDTO(Long id, Long studentId, BadgeDTO badge, LocalDateTime createdAt) {
+    public StudentBadgeDTO(Long id, String studentId, BadgeDTO badge, LocalDateTime createdAt) {
         this.id = id;
         this.studentId = studentId;
         this.badge = badge;
@@ -26,11 +26,11 @@ public class StudentBadgeDTO {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

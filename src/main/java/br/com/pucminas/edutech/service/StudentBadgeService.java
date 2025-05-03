@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentBadgeService {
@@ -38,7 +37,7 @@ public class StudentBadgeService {
     }
 
     // CREATE
-    public StudentBadgeDTO assignBadgeToStudent(Long studentId, Long badgeId) {
+    public StudentBadgeDTO assignBadgeToStudent(String studentId, Long badgeId) {
         Badge badge = badgeRepository.findById(badgeId)
                 .orElseThrow(() -> new EntityNotFoundException("Badge not found"));
 
@@ -49,7 +48,7 @@ public class StudentBadgeService {
     }
 
     // Get All Badges for a Student
-    public List<StudentBadgeDTO> getBadgesByStudentId(Long studentId) {
+    public List<StudentBadgeDTO> getBadgesByStudentId(String studentId) {
         List<StudentBadge> badges = studentBadgeRepository.findByStudentId(studentId);
         return badges
                 .stream()
@@ -60,7 +59,7 @@ public class StudentBadgeService {
 
     // DELETE
     @Transactional
-    public void deleteStudentBadge(Long studentId, Long badgeId) {
+    public void deleteStudentBadge(String studentId, Long badgeId) {
         studentBadgeRepository.deleteByStudentIdAndBadgeId(studentId, badgeId);
     }
 }

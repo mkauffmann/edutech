@@ -12,7 +12,7 @@ public class StudentLessonProgress {
     private Long id;
 
     @Column(name = "student_id", nullable = false)
-    private Long studentId;
+    private String studentId;
 
     @ManyToOne
     @JoinColumn(name = "lesson_id", nullable = false)
@@ -21,14 +21,14 @@ public class StudentLessonProgress {
     @Column(name = "watched_at", nullable = false)
     private LocalDateTime watchedAt;
 
-    public StudentLessonProgress(Long id, Long studentId, Lesson lesson, LocalDateTime watchedAt) {
+    public StudentLessonProgress(Long id, String studentId, Lesson lesson, LocalDateTime watchedAt) {
         this.id = id;
         this.studentId = studentId;
         this.lesson = lesson;
         this.watchedAt = watchedAt;
     }
 
-    public StudentLessonProgress(Long studentId, Lesson lesson, LocalDateTime watchedAt) {
+    public StudentLessonProgress(String studentId, Lesson lesson, LocalDateTime watchedAt) {
         this.studentId = studentId;
         this.lesson = lesson;
         this.watchedAt = watchedAt;
@@ -45,11 +45,11 @@ public class StudentLessonProgress {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
