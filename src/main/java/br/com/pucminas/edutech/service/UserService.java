@@ -10,6 +10,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class UserService {
         return token;
     }
 
-    public ResponseEntity<String>  createUser(UserDTO user){
+    public ResponseEntity<String>  createUser(UserDTO user) throws HttpClientErrorException{
         String accessToken = getServiceAccountAccessToken().getAccess_token();
 
         HttpHeaders headers = new HttpHeaders();
@@ -96,14 +97,16 @@ public class UserService {
         KeycloakUserDTO kc = new KeycloakUserDTO();
 
         kc.setUsername(user.getUsername());
-        kc.setEmail(user.getUsername());
         kc.setEnabled(true);
 
+        if (user.getEmail() != null){
+            kc.setEmail(user.getEmail());
+        }
 
         return kc;
     }
 
-    private ResponseEntity<String>  setUserPassword(String userId, String password, HttpHeaders headers){
+    private ResponseEntity<String>  setUserPassword(String userId, String password, HttpHeaders headers) throws HttpClientErrorException {
         RestTemplate rt = new RestTemplate();
 
         String url = env.getProperty("keycloak.url") +
@@ -135,7 +138,7 @@ public class UserService {
         return response;
     }
 
-    private ResponseEntity<String> setUserStudentRole(String userId, HttpHeaders headers){
+    private ResponseEntity<String> setUserStudentRole(String userId, HttpHeaders headers) throws  HttpClientErrorException{
         RestTemplate rt = new RestTemplate();
 
         String url = env.getProperty("keycloak.url") +

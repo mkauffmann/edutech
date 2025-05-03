@@ -3,23 +3,9 @@ package br.com.pucminas.edutech.model.dto;
 
 public class UserDTO {
     private String username;
+    private String email;
     private String password;
     private String repeatPassword;
-
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public UserDTO(String username, String password, String repeatPassword) {
-        this.username = username;
-        this.password = password;
-        this.repeatPassword = repeatPassword;
-    }
-
-    public UserDTO(String username) {
-        this.username = username;
-    }
 
     public UserDTO() {
     }
@@ -46,5 +32,13 @@ public class UserDTO {
 
     public void setRepeatPassword(String repeatPassword) {
         this.repeatPassword = repeatPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

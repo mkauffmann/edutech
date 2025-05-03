@@ -5,6 +5,7 @@ import br.com.pucminas.edutech.service.LessonService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class LessonController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LessonDTO> createLesson(@RequestBody LessonDTO lessonDTO) {
         return new ResponseEntity<>(service.createLesson(lessonDTO), HttpStatus.CREATED);
     }
@@ -36,11 +38,13 @@ public class LessonController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LessonDTO> updateLesson(@PathVariable Long id, @RequestBody LessonDTO lessonDTO) {
         return ResponseEntity.ok(service.updateLesson(id, lessonDTO));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteLesson(@PathVariable Long id) {
         service.deleteLesson(id);
         return ResponseEntity.noContent().build();
