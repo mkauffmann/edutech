@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface StudentBadgeRepository extends JpaRepository<StudentBadge, Long> {
-    List<StudentBadge> findByStudentId(Long studentId);
+    List<StudentBadge> findByStudentId(String studentId);
 
     @Transactional
-    void deleteByStudentIdAndBadgeId(Long studentId, Long badgeId);
+    void deleteByStudentIdAndBadgeId(String studentId, Long badgeId);
 }

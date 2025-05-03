@@ -5,6 +5,7 @@ import br.com.pucminas.edutech.service.CourseService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class CourseController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO courseDTO) {
         return new ResponseEntity<>(service.createCourse(courseDTO), HttpStatus.CREATED);
     }
@@ -36,22 +38,26 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CourseDTO> updateCourseInfo(@PathVariable Long id, @RequestBody CourseDTO courseDTO) {
         return ResponseEntity.ok(service.updateCourseInfo(id, courseDTO));
     }
 
     @PutMapping()
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CourseDTO> addLessonToCourse(@RequestParam Long courseId, @RequestParam Long lessonId) {
         return ResponseEntity.ok(service.addLessonToCourse(courseId, lessonId));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
         service.deleteCourse(id);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping()
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CourseDTO> deleteLessonFromCourse(@RequestParam Long courseId, @RequestParam Long lessonId) {
         return ResponseEntity.ok(service.deleteLessonFromCourse(courseId, lessonId));
     }

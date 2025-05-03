@@ -5,6 +5,9 @@ import br.com.pucminas.edutech.service.StudentPointsService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -20,23 +23,30 @@ public class StudentPointsController {
         this.service = service;
     }
 
-    @PutMapping("/{studentId}")
-    public ResponseEntity<StudentPointsDTO> updatePoints(@PathVariable Long studentId, @RequestBody StudentPointsDTO dto) {
+    @PutMapping
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<StudentPointsDTO> updatePoints(@AuthenticationPrincipal Jwt jwt, @RequestBody StudentPointsDTO dto) {
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         return ResponseEntity.ok(service.updatePoints(studentId, dto.getPoints()));
     }
 
-    @GetMapping
+    @GetMapping("/ranking")
     public ResponseEntity<List<StudentPointsDTO>> getStudentPointsRanking(){
         return ResponseEntity.ok(service.getStudentPointsRanking());
     }
 
-    @GetMapping("/{studentId}")
-    public ResponseEntity<StudentPointsDTO> getStudentPointsByID(@PathVariable Long studentId){
+    @GetMapping
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<StudentPointsDTO> getStudentPointsByID(@AuthenticationPrincipal Jwt jwt){
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         return ResponseEntity.ok(service.getStudentPointsByID(studentId));
     }
 
     @DeleteMapping("/{studentId}")
-    public ResponseEntity<Void> clearStudentPoints(@PathVariable Long studentId){
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Void> clearStudentPoints(@PathVariable String studentId){
         service.clearStudentPoints(studentId);
 
         return ResponseEntity.noContent().build();

@@ -13,7 +13,7 @@ public class StudentBadge {
     private Long id;
 
     @Column(name = "student_id",  nullable = false)
-    private Long studentId;  // Foreign key to student service
+    private String studentId;  // Foreign key to student service
 
     @JoinColumn(name = "badge_id", nullable = false)
     @ManyToOne
@@ -23,13 +23,13 @@ public class StudentBadge {
     private LocalDateTime createdAt;
 
 
-    public StudentBadge(Long studentId, Badge badges, LocalDateTime createdAt) {
+    public StudentBadge(String studentId, Badge badges, LocalDateTime createdAt) {
         this.studentId = studentId;
         this.badge = badges;
         this.createdAt = createdAt;
     }
 
-    public StudentBadge(Long id, Long studentId, Badge badge, LocalDateTime createdAt) {
+    public StudentBadge(Long id, String studentId, Badge badge, LocalDateTime createdAt) {
         this.id = id;
         this.studentId = studentId;
         this.badge = badge;
@@ -47,11 +47,11 @@ public class StudentBadge {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

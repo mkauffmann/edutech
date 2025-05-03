@@ -24,7 +24,7 @@ public class LessonProgressService {
         this.modelMapper = modelMapper;
     }
 
-    public void markLessonAsWatched(Long studentId, Long lessonId) {
+    public void markLessonAsWatched(String studentId, Long lessonId) {
         Lesson lesson = lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new EntityNotFoundException("Lesson not found with id " + lessonId));
 
@@ -36,7 +36,7 @@ public class LessonProgressService {
         studentLessonProgressRepository.save(progress);
     }
 
-    public List<LessonDTO> getLessonsWatchedByStudent(Long studentId) {
+    public List<LessonDTO> getLessonsWatchedByStudent(String studentId) {
         List<StudentLessonProgress> progresses = studentLessonProgressRepository.findByStudentId(studentId);
         return progresses.stream()
                 .map(progress -> modelMapper.map(progress.getLesson(), LessonDTO.class))

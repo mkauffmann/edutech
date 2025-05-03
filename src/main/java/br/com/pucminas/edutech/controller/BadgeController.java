@@ -5,6 +5,7 @@ import br.com.pucminas.edutech.service.BadgeService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class BadgeController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<BadgeDTO> createBadge(@RequestBody BadgeDTO badgeDTO) {
         return new ResponseEntity<>(badgeService.createBadge(badgeDTO), HttpStatus.CREATED);
     }
@@ -36,11 +38,13 @@ public class BadgeController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<BadgeDTO> updateBadge(@PathVariable Long id, @RequestBody BadgeDTO badgeDTO) {
         return ResponseEntity.ok(badgeService.updateBadge(id, badgeDTO));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteBadge(@PathVariable Long id) {
         badgeService.deleteBadge(id);
         return ResponseEntity.noContent().build();

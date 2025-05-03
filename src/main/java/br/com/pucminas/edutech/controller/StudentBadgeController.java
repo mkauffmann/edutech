@@ -5,6 +5,9 @@ import br.com.pucminas.edutech.service.StudentBadgeService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -22,18 +25,25 @@ public class StudentBadgeController {
     }
 
     @PostMapping
-    public ResponseEntity<StudentBadgeDTO> assignBadgeToStudent(@RequestParam Long studentId, @RequestParam Long badgeId){
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<StudentBadgeDTO> assignBadgeToStudent(@AuthenticationPrincipal Jwt jwt, @RequestParam Long badgeId){
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         return ResponseEntity.ok(service.assignBadgeToStudent(studentId, badgeId));
     }
 
     @GetMapping
-    public ResponseEntity<List<StudentBadgeDTO>> getBadgesByStudentId(@RequestParam Long studentId) {
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<List<StudentBadgeDTO>> getBadgesByStudentId(@AuthenticationPrincipal Jwt jwt) {
+        String studentId = jwt.getClaimAsString("preferred_username");
+
         return ResponseEntity.ok(service.getBadgesByStudentId(studentId));
     }
 
 
     @DeleteMapping
-    public ResponseEntity<String> deleteStudentBadge(@RequestParam Long studentId, @RequestParam Long badgeId) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> deleteStudentBadge(@RequestParam String studentId, @RequestParam Long badgeId) {
         service.deleteStudentBadge(studentId, badgeId);
         return ResponseEntity.ok("StudentBadge deleted successfully.");
     }

@@ -3,7 +3,7 @@ package br.com.pucminas.edutech.model.dto;
 import java.time.LocalDateTime;
 
 public class StudentPointsDTO {
-    private Long studentId;
+    private String studentId;
     private Integer points;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -11,7 +11,7 @@ public class StudentPointsDTO {
     public StudentPointsDTO() {
     }
 
-    public StudentPointsDTO(Long studentId, Integer points, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public StudentPointsDTO(String studentId, Integer points, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.studentId = studentId;
         this.points = points;
         this.createdAt = createdAt;
@@ -22,11 +22,11 @@ public class StudentPointsDTO {
         this.points = points;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
