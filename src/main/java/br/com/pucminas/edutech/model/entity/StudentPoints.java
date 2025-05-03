@@ -13,7 +13,7 @@ public class StudentPoints {
 
     @Id
     @Column(name = "student_id")
-    private Long studentId;  // Foreign key to student service
+    private String studentId;  // Foreign key to student service
 
     @Column(name = "points")
     private int points;
@@ -24,14 +24,14 @@ public class StudentPoints {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public StudentPoints(LocalDateTime updatedAt, LocalDateTime createdAt, int points, Long studentId) {
+    public StudentPoints(LocalDateTime updatedAt, LocalDateTime createdAt, int points, String studentId) {
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
         this.points = points;
         this.studentId = studentId;
     }
 
-    public StudentPoints(Long studentId, LocalDateTime createdAt) {
+    public StudentPoints(String studentId, LocalDateTime createdAt) {
         this.studentId = studentId;
         this.points = 0;
         this.createdAt = createdAt;
@@ -41,11 +41,11 @@ public class StudentPoints {
     public StudentPoints() {
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

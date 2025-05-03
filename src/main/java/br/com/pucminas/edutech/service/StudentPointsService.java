@@ -30,7 +30,7 @@ public class StudentPointsService {
         return modelMapper.map(studentPointsDTO, StudentPoints.class);
     }
 
-    public StudentPointsDTO updatePoints(Long studentId, int points){
+    public StudentPointsDTO updatePoints(String studentId, int points){
         StudentPoints currentStudentPoints = studentPointsRepository.findById(studentId)
                 .orElseGet(() -> new StudentPoints(studentId, LocalDateTime.now())); //In case no student is found, create new studentPoints entry with 0 points
 
@@ -50,12 +50,12 @@ public class StudentPointsService {
 
     }
 
-    public StudentPointsDTO getStudentPointsByID(Long id){
+    public StudentPointsDTO getStudentPointsByID(String id){
         return convertToDTO(studentPointsRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No Student with id " + id + " found")));
     }
 
-    public void clearStudentPoints(Long id){
+    public void clearStudentPoints(String id){
         StudentPoints studentPoints = studentPointsRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No Student with id " + id + " found"));
 
