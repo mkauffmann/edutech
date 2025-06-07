@@ -15,19 +15,6 @@ services:
       - ./init-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres_data:/var/lib/postgresql/data
 
-  app:
-    build: .
-    container_name: edutech
-    depends_on:
-      - postgres
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/edutech
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: admin
-    ports:
-      - "8080:8080"
-      - "5005:5005"
-
   keycloak:
     image: quay.io/keycloak/keycloak:22.0.1
     container_name: keycloak
@@ -40,7 +27,22 @@ services:
     command: start-dev --import-realm
     volumes:
       - ./keycloak-import:/opt/keycloak/data/import
+      - keycloak_data:/opt/keycloak/data
+
+  app:
+    build: .
+    container_name: edutech
+    depends_on:
+      postgres:
+        condition: service_started
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/edutech
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+    ports:
+      - "8080:8080"
+      - "5005:5005"
 
 volumes:
   postgres_data:
-  keycloak-import:
+  keycloak_data:
