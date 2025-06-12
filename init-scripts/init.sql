@@ -194,6 +194,258 @@ VALUES
 'O que preciso saber quando for comprar um celular de outra pessoa? Como proteger minhas senhas? Como proteger meu celular?',
 'youtu.be/tHput2b6Fj8');
 
+-- course 5
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso de SQL com MySQL',
+'Nessa playlist você vai aprender a linguagem SQL com o Curso de SQL com MySQL ',
+'./images/courses/sql.png');
+
+-- lesson 21
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Diagrama Entidade Relacionamento (DER)',
+'Na primeira aula, vamos falar sobre o Diagrama Entidade Relacionamento, tabelas, atributos, primary keys (chaves primárias), foreign keys (chaves estrangeiras) e muito mais.',
+'youtu.be/lHYV_H1526Q');
+
+-- lesson 22
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Relacionamentos One-to-one, One-to-many e Many-to-many',
+'Nesse vídeo vamos falar sobre os relacionamentos entre entidades usando SQL (ou qualquer SGBD que quiser na verdade).',
+'youtu.be/4v-SzrpC738');
+
+-- lesson 23
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Preparando o ambiente dev',
+'Nesse vídeo vamos preparar nosso ambiente de desenvolvimento para o  Curso de SQL com MySQL.',
+'youtu.be/eD9_ps_viMw');
+
+
+-- lesson 24
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Criando tabelas e colunas',
+'Nesse vídeo vamos aprender a criar as tabelas e colunas que representamos usando aquele diagrama entidade relacionamento.',
+'youtu.be/TDevWRDCH8s');
+
+-- lesson 25
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Insert, Use, Show, Describe',
+'Nesse vídeo vamos aprender a criar as tabelas e colunas que representamos usando aquele diagrama entidade relacionamento.',
+'youtu.be/BLgrxVZKIO4');
+
+-- course 6
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso Básico de Power BI',
+'Hoje vamos dar início ao Curso Básico de Power BI 2024 para começar o ano dando seus primeiros passos com essa ferramenta incrível que é o Power BI.',
+'./images/courses/power-bi.png');
+
+-- lesson 26
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Introdução ao Power BI',
+'Nessa primeira aula eu quero falar o que é o Power BI, como instalar o Power BI, como ele funciona e como você pode dar seus primeiros passos no Power BI.',
+'youtu.be/VMSfIaiW54M');
+
+-- lesson 27
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Editando a Base de Dados com Power Query',
+'Nessa aula eu vou te mostrar mais sobre o tratamento de dados no Power Query, como podemos juntar colunas no Power Query, como extrair dados de uma coluna para análises mais específicas.',
+'youtu.be/9JAZ9S_DNGA');
+
+-- lesson 28
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Introdução às Fórmulas do Power BI',
+'Nessa aula eu quero te mostrar as Fórmulas do Power BI, que são chamadas de Fórmulas DAX (Data Analysis Expressions).',
+'youtu.be/xx3uYFmsqG4');
+
+-- lesson 29
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Tipos de Gráficos no Power BI e Como Usar',
+'Nessa aula eu quero te mostrar quais são os tipos de gráficos no Power BI e como usar cada um deles.',
+'youtu.be/0ZlpuB3Hclc');
+
+-- lesson 30
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Construindo o Dashboard',
+'Nessa aula nós vamos finalizar o nosso Dashboard no Power BI para que você tenha uma análise completa com todos os indicadores!',
+'youtu.be/fvqEHuRmyYw');
+
+-- course 7
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso de C# e .NET 8: Guia Completo do Básico ao Avançado',
+'Bem-vindo ao curso completo de C# e .NET 8!',
+'./images/courses/csharp.png');
+
+-- lesson 31
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Sintaxe Básica',
+'Na Aula #1 do curso "Curso de C# e .NET 8", você vai aprender sobre a sintaxe básica da linguagem C#',
+'youtu.be/ON3R9J6SK_w');
+
+-- lesson 32
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Como Executar uma Aplicação .NET no Visual Studio Code',
+'Neste vídeo, você aprenderá o passo a passo para configurar e executar uma aplicação .NET no Visual Studio Code, um editor de código leve e altamente versátil.',
+'youtu.be/3JIBmshOzu4');
+
+-- lesson 33
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Variáveis',
+'Na Aula #2 do curso "Curso de C# e .NET 8", vamos focar em variáveis. Você vai aprender o que são variáveis, como declará-las e utilizá-las no C#.',
+'youtu.be/BEBpG0HxmnY');
+
+-- lesson 34
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Constantes',
+'Na Aula #3 do curso "Curso de C# e .NET 8", vamos explorar o conceito de constantes em C#. Você vai aprender como declarar e utilizar constantes, entendendo sua importância na criação de código.',
+'youtu.be/3ag2cbnO_uQ');
+
+-- lesson 35
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Input e Output',
+'Na Aula #4 do curso "Curso de C# e .NET 8", vamos aprender sobre Input e Output em C#. Você descobrirá como capturar a entrada do usuário e exibir informações na tela, dominando as interações básicas com o console.',
+'youtu.be/4Z4wxWrdpU0');
+
+-- course 8
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso completo e atual de HTML5 e CSS3',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes. ',
+'./images/courses/html5_css3.png');
+
+-- lesson 36
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Seu primeiro código HTML',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes.',
+'youtu.be/E6CdIawPTh0');
+
+-- lesson 37
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Parágrafos e Quebras',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes.',
+'youtu.be/f6NTJdtEFOc');
+
+-- lesson 38
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Quais são os formatos para imagens na Web?',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes.',
+'youtu.be/xg-vHgLF0m');
+
+-- lesson 39
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('A tag img em HTML5',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes.',
+'youtu.be/CwOmEetWMnU');
+
+-- lesson 40
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Estilos CSS inline',
+'O Curso de HTML5 e CSS3 vai ensinar a criar sites usando a linguagem de marcação hipertexto (HTML) e  folhas de estilo em cascata (CSS), todas em suas versões mais recentes.',
+'youtu.be/byqhpuVpvEI');
+
+-- course 9
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso de Redes de Computadores',
+'Curso de redes da Bóson Treinamentos, vamos abordar desde tópicos básicos ate tópicos avançados.',
+'./images/courses/networks.jpg');
+
+-- lesson 41
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Componentes de uma rede, LAN, WAN',
+'Essa é a primeira vídeo-aula do curso de redes, falamos sobre o que é uma rede, quais os componentes de uma rede de computadores bem como o conceito básico de #LAN e #WAN.',
+'youtu.be/efGBoJ-f_2Y');
+
+-- lesson 42
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Escopos de Rede',
+'Neste vídeo vamos falar sobre os principais escopos de rede existentes, incluindo os escopos LAN, MAN, WAN, PAN, além d citar outros escopos, como GAN, CAN, HAN e SAN.',
+'youtu.be/4dxynCvfbFM');
+
+-- lesson 43
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Topologias',
+'Na segunda vídeo-aula do curso de #Redes de Computadores, apresentamos as principais topologias: barramento, anel, estrela e malha.',
+'youtu.be/1hJaTQIT2HQ');
+
+-- lesson 44
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Modelo OSI',
+'Nesse vídeo do Curso de Redes de Computadores apresentamos o modelo #OSI e as suas sete camadas: física, enlace, rede, transporte, sessão, apresentação e aplicação.',
+'youtu.be/WO1uGJRqrwI');
+
+-- lesson 45
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Introdução ao TCP/IP',
+'Neste vídeo de nosso curso de redes de computadores, vamos explicar o que é a pilha de protocolos TCP/IP.',
+'youtu.be/bH29oltn8Cw');
+
+-- course 10
+INSERT INTO course (NAME, DESCRIPTION, COVER_IMG_URL)
+VALUES
+('Curso Introdução a Machine Learning',
+'A evolução e a popularidade da IA deve somente aumentar com o tempo, dada as muitas aplicações práticas e soluções para problemas mundiais.',
+'./images/courses/ml.jpg');
+
+-- lesson 46
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('O que é Inteligência Artificial?',
+'Nesse vídeo vamos aprender o que é inteligência artificial e como ela está sendo aplicada no nosso dia-a-dia.',
+'youtu.be/ID5Ui22F8HQ');
+
+-- lesson 47
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('O que é Machine Learning (Aprendizado de Máquina)?',
+'Nesse vídeo vamos aprender o que é machine learning (aprendizado de máquina) e por que essa área tem sido tão importante no mundo da inteligência artificial.',
+'youtu.be/qDmojpkd8rE');
+
+-- lesson 48
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('Dados de Treino e Teste',
+'Aprenda nesse vídeo a importância em se separar os dados em duas partes: treino e teste.',
+'youtu.be/N2TT2Q83abc');
+
+-- lesson 49
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('O que é Overfitting e Underfitting?',
+'Aprenda nesse vídeo os conceitos de overfitting (sobre ajuste) e underfitting (sub ajuste) no ramo do machine learning.',
+'youtu.be/IHAb3NHDahU');
+
+-- lesson 50
+INSERT INTO lesson (NAME, DESCRIPTION, VIDEO_URL)
+VALUES
+('O que é Aprendizado Supervisionado x Não Supervisionado',
+'Entenda os conceitos de aprendizado supervisionado e aprendizado não supervisionado no mundo do machine learning.',
+'youtu.be/JDDqP6IZ4NQ');
 
 
 INSERT INTO course_lesson (ID_COURSE, ID_LESSON)
@@ -217,7 +469,37 @@ VALUES
 (4, 17),
 (4, 18),
 (4, 19),
-(4, 20)
+(4, 20),
+(5, 21),
+(5, 22),
+(5, 23),
+(5, 24),
+(5, 25),
+(6, 26),
+(6, 27),
+(6, 28),
+(6, 29),
+(6, 30),
+(7, 31),
+(7, 32),
+(7, 33),
+(7, 34),
+(7, 35),
+(8, 36),
+(8, 37),
+(8, 38),
+(8, 39),
+(8, 40),
+(9, 41),
+(9, 42),
+(9, 43),
+(9, 44),
+(9, 45),
+(10, 46),
+(10, 47),
+(10, 48),
+(10, 49),
+(10, 50)
 ;
 
 
